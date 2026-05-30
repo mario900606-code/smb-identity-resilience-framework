@@ -1,53 +1,72 @@
 # SMB Identity & Resilience Framework
 
-A practical cybersecurity framework focused on identity security, access control and cyber resilience for small and medium-sized businesses.
+Ett praktiskt cybersäkerhetsprojekt med fokus på Identity & Access Management (IAM), Single Sign-On (SSO), Multi-Factor Authentication (MFA) och cyberresiliens för små och medelstora företag (SMB).
 
----
+## Syfte
 
-## Purpose
+Projektet utforskar hur en organisation kan centralisera identitetshantering, autentisering och behörighetsstyrning med hjälp av moderna IAM-principer och open source-teknologier.
 
-Many SMBs face the same identity-based threats as large enterprises but lack dedicated security teams and resources.
+## Funktioner
 
-This project explores how smaller organizations can implement practical and lightweight security controls such as:
+* Centraliserad identitetshantering med Keycloak
+* Single Sign-On (SSO)
+* OpenID Connect (OIDC)
+* Multi-Factor Authentication (MFA)
+* Gruppbaserad Role-Based Access Control (RBAC)
+* Automatisk användarprovisionering till Grafana
+* Containeriserad miljö med Docker
 
-- Centralized Identity Management (IAM)
-- Multi-Factor Authentication (MFA)
-- Role-Based Access Control (RBAC)
-- Access visibility and logging
-- Basic cyber resilience capabilities
+## Arkitektur
 
-The goal is to build a realistic and understandable security model that SMBs can actually implement.
+```text
+Users
+   │
+   ▼
+Keycloak
+(IAM + SSO + MFA)
+   │
+   │ OIDC
+   ▼
+Grafana
+(RBAC)
+```
 
----
+## Implementerade roller
 
-## Current Focus
+| Grupp | Roll    | Grafana |
+| ----- | ------- | ------- |
+| IT    | admin   | Admin   |
+| SOC   | analyst | Editor  |
+| Users | viewer  | Viewer  |
 
-Version 1:
-- Identity & access foundation
-- Basic resilience model
-- Minimal Zero Trust principles
-- Logging and visibility
+## Teknologier
 
----
+* Keycloak
+* Grafana
+* Docker
+* OpenID Connect (OIDC)
 
-## Planned Components
+## Dokumentation
 
-- Keycloak IAM
-- MFA enforcement
-- Role-based access
-- Session management
-- Logging & monitoring
-- Incident response simulation
-- Access recovery workflows
+Mer detaljerad dokumentation finns under:
 
----
+* docs/architecture.md
 
-## Roadmap
+## Status
 
-This project will be developed publicly in phases:
-1. Foundation & architecture
-2. IAM implementation
-3. MFA & RBAC
-4. Logging & monitoring
-5. Incident simulation
-6. Resilience & recovery workflows
+Aktuellt fokus:
+
+* IAM
+* SSO
+* MFA
+* Gruppbaserad RBAC
+* Identity Lifecycle Management
+
+## Framtida utveckling
+
+* Onboarding- och offboardingprocesser
+* Access Reviews
+* Audit Logging
+* Identity Governance-koncept
+* Fler OIDC-integrerade applikationer
+* Förbättrad cyberresiliens
